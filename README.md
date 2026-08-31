@@ -21,6 +21,7 @@
 - [Solución Propuesta](#-solución-propuesta)
 - [Stack Tecnológico](#-stack-tecnológico)
 - [Arquitectura y Despliegue](#-arquitectura-y-despliegue)
+- [Estructura del Repositorio](#-estructura-del-repositorio)
 
 ---
 
@@ -64,3 +65,11 @@ La plataforma incluirá un sistema para requerir el pago o la simulación de una
 - **Frontend:** Vercel
 - **Backend:** Railway
 - **Base de Datos:** MongoDB Atlas
+
+---
+
+## 📁 Estructura del Repositorio
+- **/frontend:** Entorno de la interfaz del cliente inicializado con Vite.
+- **/backend:** Lógica del servidor y API REST desarrollada con Spring Boot.
+- **/docs:** Archivos de documentación, incluyendo la propuesta inicial del proyecto.
+- **/database:** Scripts y esquemas futuros para la base de datos MongoDB.
