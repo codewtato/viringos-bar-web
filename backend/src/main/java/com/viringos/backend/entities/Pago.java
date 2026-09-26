@@ -20,6 +20,8 @@ public class Pago {
 
     private Double monto;
 
+    private String metodoPago;
+
     @Enumerated(EnumType.STRING)
     private EstadoPago estadoPago;
 

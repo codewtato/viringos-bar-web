@@ -5,5 +5,5 @@ public enum EstadoReserva {
     CONFIRMADA,
     CANCELADA,
     ASISTIDA,
-    NO_PRESENTADA
+    NO_ASISTIO
 }
