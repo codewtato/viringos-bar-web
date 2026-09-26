@@ -57,8 +57,8 @@ La plataforma incluirá un sistema para requerir el pago o la simulación de una
 - **Enfoque:** Construcción de una API REST sólida encargada de procesar reglas de negocio, validar disponibilidad y gestionar estados aplicando los principios de POO.
 
 ### Base de Datos
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
-- **Enfoque:** Almacenamiento NoSQL orientado a documentos, ideal para manejar estructuras dinámicas de reservas.
+![MySQL](https://img.shields.io/badge/mysql-%234479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
+- **Enfoque:** Se optó por una base de datos relacional (MySQL). El dominio del bar presenta relaciones fuertemente estructuradas entre clientes, disponibilidad de horarios, reservas y estados de pagos. Un modelo relacional garantiza la integridad referencial y permite gestionar bloqueos concurrentes (transacciones ACID) para evitar que dos clientes ocupen la misma capacidad simultáneamente, alineándose con las reglas de negocio evaluadas.
 
 ---
 
