@@ -17,28 +17,9 @@
 ---
 
 ## 📋 Índice
-- [Contexto y Problema](#-contexto-y-problema)
-- [Solución Propuesta](#-solución-propuesta)
 - [Stack Tecnológico](#-stack-tecnológico)
 - [Arquitectura y Despliegue](#-arquitectura-y-despliegue)
 - [Estructura del Repositorio](#-estructura-del-repositorio)
-
----
-
-## ⚠️ Contexto y Problema
-El proyecto está pensado para **Viringo's Bar**, un establecimiento gastronómico que actualmente enfrenta cuellos de botella operativos debido a la falta de un canal digital automatizado.
-
-Todo el sistema de reservas se maneja de forma manual a través de WhatsApp, Instagram y Facebook. Según las observaciones del responsable del negocio, esto genera:
-- **Carga operativa:** El personal dedica un tiempo considerable a responder consultas repetitivas y anotar reservas a mano, restando atención presencial y a otras tareas.
-- **Ausentismo recurrente:** Al no existir compromiso económico o garantía previa, se observa que una parte de los clientes reserva mesas y no se presenta. Esto se traduce en mesas vacías y un impacto económico negativo para el local.
-
-## 💡 Solución Propuesta
-Se desarrollará una aplicación web ágil donde los clientes puedan autogestionar la reserva de sus mesas de manera autónoma.
-
-La plataforma incluirá un sistema para requerir el pago o la simulación de una **seña previa** como condición obligatoria para confirmar el turno. Esto permitirá:
-1. Filtrar a los clientes dubitativos o curiosos.
-2. Reducir el ausentismo.
-3. Disminuir la carga administrativa del personal asociada a la gestión de reservas.
 
 ---
 
