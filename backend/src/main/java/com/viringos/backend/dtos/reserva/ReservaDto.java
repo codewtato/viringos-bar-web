@@ -6,10 +6,10 @@ import java.time.LocalTime;
 
 public record ReservaDto(
     Long id, 
+    String nombre,
     LocalDate fecha, 
     LocalTime franjaHoraria, 
     Integer cantidadPersonas, 
     String estado, 
-    ClienteDto cliente, 
     Long mesaId
 ) {}

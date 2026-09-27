@@ -20,16 +20,13 @@ public class Reserva {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String nombre;
     private LocalDate fecha;
     private LocalTime franjaHoraria;
     private Integer cantidadPersonas;
 
     @Enumerated(EnumType.STRING)
     private EstadoReserva estado;
-
-    @ManyToOne
-    @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
 
     @ManyToOne
     @JoinColumn(name = "mesa_id")

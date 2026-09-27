@@ -1,13 +1,10 @@
 package com.viringos.backend.services.reserva;
 
-import com.viringos.backend.dtos.cliente.ClienteDto;
 import com.viringos.backend.dtos.reserva.ReservaCreate;
 import com.viringos.backend.dtos.reserva.ReservaDto;
-import com.viringos.backend.entities.Cliente;
 import com.viringos.backend.entities.enums.EstadoReserva;
 import com.viringos.backend.entities.Mesa;
 import com.viringos.backend.entities.Reserva;
-import com.viringos.backend.repositories.ClienteRepository;
 import com.viringos.backend.repositories.MesaRepository;
 import com.viringos.backend.repositories.ReservaRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,15 +18,9 @@ public class ReservaServiceImp implements ReservaService {
 
     private final ReservaRepository reservaRepository;
     private final MesaRepository mesaRepository;
-    private final ClienteRepository clienteRepository;
 
     @Override
     public ReservaDto procesarSolicitud(ReservaCreate dto) {
-        
-        // validar cliente
-        Cliente cliente = clienteRepository.findById(dto.clienteId())
-                .orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
-
         // traer mesas y calcular capacidad total
         List<Mesa> todasLasMesas = mesaRepository.findAll();
         
@@ -69,27 +60,18 @@ public class ReservaServiceImp implements ReservaService {
         nuevaReserva.setFranjaHoraria(dto.franjaHoraria());
         nuevaReserva.setCantidadPersonas(dto.cantidadPersonas());
         nuevaReserva.setEstado(EstadoReserva.SOLICITADA);
-        nuevaReserva.setCliente(cliente);
         nuevaReserva.setMesa(mesaAsignada);
+        nuevaReserva.setNombre(dto.nombre());
 
         Reserva reservaGuardada = reservaRepository.save(nuevaReserva);
 
-        // devolver el DTO
-        ClienteDto clienteDto = new ClienteDto(
-                cliente.getId(), 
-                cliente.getNombre(), 
-                cliente.getApellido(), 
-                cliente.getTelefono(), 
-                cliente.getEmail()
-        );
-
         return new ReservaDto(
                 reservaGuardada.getId(),
+                reservaGuardada.getNombre(),
                 reservaGuardada.getFecha(),
                 reservaGuardada.getFranjaHoraria(),
                 reservaGuardada.getCantidadPersonas(),
                 reservaGuardada.getEstado().name(),
-                clienteDto,
                 reservaGuardada.getMesa().getId()
         );
     }
