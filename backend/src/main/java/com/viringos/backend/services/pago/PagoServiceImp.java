@@ -21,7 +21,7 @@ public class PagoServiceImp implements PagoService {
 
     @Override
     @Transactional // si falla algo, no se guarde el pago ni cambie el estado
-    public PagoDto registrarSenia(PagoCreate dto) {
+    public PagoDto procesarPago(PagoCreate dto) {
         
         // buscar la reserva a la que se le va a pagar la seña
         Reserva reserva = reservaRepository.findById(dto.reservaId())

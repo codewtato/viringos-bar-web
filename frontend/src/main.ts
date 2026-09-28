@@ -1,4 +1,8 @@
 const form = document.querySelector("#reserve-form") as HTMLFormElement;
+const contForm = document.querySelector(".form-container")as HTMLDivElement;
+const pagoBtn = document.querySelector(".pago-btn") as HTMLButtonElement;
+const contPago = document.querySelector(".pago-container") as HTMLDivElement;
+let reservaId: number | undefined;
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -23,14 +27,54 @@ form.addEventListener("submit", async (e) => {
             body: JSON.stringify(nuevaReserva)
         });
 
+        if(response.ok){
+            contForm.classList.add("oculto");
+            contPago.classList.remove("oculto");
+            form.reset();
+        }
         if(!response.ok) {
             const error = await response.text();
             throw new Error(error || "Error al procesar la reserva.");
         }
 
         const dataReserva = await response.json();
+        reservaId = dataReserva.id;
         console.log("Reserva creada con éxito: ", dataReserva);
     } catch(error) {
         console.log("Ocurrió un error: ", error)
     }
 });
+
+pagoBtn.addEventListener("click", async (e) => {
+
+    const nuevoPago = {
+        monto: 20.0,
+        metodoPago: "Tarjeta",
+        reservaId: reservaId
+    }
+
+    try{
+        const response = await fetch("http://localhost:8080/api/pagos",{
+            method: "POST",
+            headers:{
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(nuevoPago)
+        });
+
+        if(!response.ok){
+            const error = await response.text();
+            throw new Error(error || "Error al procesar el pago.");
+        }
+       
+        const dataPago = await response.json();
+        console.log("Pago procesado exitosamente!", dataPago);
+        contPago.classList.add("oculto");
+        contForm.classList.remove("oculto");
+
+    } catch(error){
+        console.log("Ocurrió un error", error);
+    }
+})
+
+

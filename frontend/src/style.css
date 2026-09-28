@@ -15,7 +15,7 @@ body{
     border-radius: 2px;
 }
 
-#reserve-form{
+.reserve-form{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -26,3 +26,16 @@ body{
     padding: 5px;
     cursor: pointer;
 }
+
+.pago-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.pago-btn{
+    cursor: pointer;
+}
+.oculto{
+    display: none;
+}
+

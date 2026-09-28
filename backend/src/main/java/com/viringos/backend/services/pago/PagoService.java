@@ -4,5 +4,5 @@ import com.viringos.backend.dtos.pago.PagoCreate;
 import com.viringos.backend.dtos.pago.PagoDto;
 
 public interface PagoService {
-    PagoDto registrarSenia(PagoCreate dto);
+    PagoDto procesarPago(PagoCreate dto);
 }

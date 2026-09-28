@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class ="form-container">
-        <form id="reserve-form" action="submit">
+        <form id="reserve-form" class="reserve-form" action="submit">
           <label for="input-name">Nombre:</label>
           <input type="text" id="input-name" required>
           <label for="input-date">Fecha: </label>
@@ -20,6 +20,10 @@
           <input type="number" id="input-size" required>
           <button id="reserve-btn">Reservar</button>
         </form>
+    </div>
+    <div class="pago-container oculto">
+      <p>Para confirmar la reserva confirme la seña.</p>
+      <button class="pago-btn">Pagar</button>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
